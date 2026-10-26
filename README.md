@@ -10,7 +10,7 @@ anything is written.
 |---|---|
 | `.swamp.yaml`, `.gitignore`, `CLAUDE.md` | Swamp repo files from `swamp repo init` |
 | `extensions/models/` | The puddle's extension and its tests. Ships with a placeholder `example.ts` |
-| `workflows/` | Swamp workflows. Every one needs `maxReruns` and `maxWallClock` tags |
+| `workflows/` | Swamp workflows. Each one needs a `workflow-*.yaml` file name, its own UUID `id`, and `maxReruns` and `maxWallClock` tags. swamp skips a file without the name or the id |
 | `manifest.yaml` | The extension's publish manifest (placeholder; `models:` lists bare file names) |
 | `contracts.ts` | Maps model instances that workflows read to the data they write |
 | `Makefile`, `puddle.mk` | `make test`, `contracts-check`, `guardrails-check`, `publish` |
@@ -28,7 +28,8 @@ gh repo create puddle-works/<slug> --template puddle-works/puddle-template --pri
 Then replace the placeholders:
 
 1. Rename the extension in `manifest.yaml`, `extensions/models/` and `contracts.ts`
-   (delete `example.ts`, its test and `workflows/example.yaml` once yours exist).
+   (delete `example.ts`, its test and `workflows/workflow-example.yaml` once
+   yours exist).
 2. Rewrite this README and the puddle section of `CLAUDE.md`.
 3. Set `visibility:` in `manifest.yaml` (and `visibility:` in `ci.yml`). The repo's
    visibility follows the extension's.
