@@ -47,7 +47,9 @@ the full tree, and `swamp help model method run` scopes to a subtree.
 This repo is a puddle made from `puddle-works/puddle-template` ([ADR-004][adr]).
 It holds one puddle: one extension with one bounded purpose.
 
-- `make test` runs every test in `extensions/models/`.
+- `make test` runs every test in `extensions/models/`. One of them checks that
+  each workflow is a `workflow-*.yaml` file with its own UUID `id`; swamp skips
+  any other file without a word.
 - `make contracts-check` and `make guardrails-check` run the shared checks from
   puddle-tooling. Every workflow in `workflows/` needs `maxReruns` and
   `maxWallClock` tags, and a workflow that reads another model's data with
@@ -56,7 +58,7 @@ It holds one puddle: one extension with one bounded purpose.
   push with `--yes`; `VISIBILITY` must equal `visibility:` in `manifest.yaml`.
 - Review reports live in `swamp-extension-review/` and are committed with the
   version they review.
-- `example.ts`, its test and `workflows/example.yaml` are placeholders. Replace
-  them; do not extend them.
+- `example.ts`, its test and `workflows/workflow-example.yaml` are
+  placeholders. Replace them; do not extend them.
 
 [adr]: https://github.com/puddle-works/puddleworks-apps/blob/main/docs/adr/ADR-004-one-repo-per-puddle.md
