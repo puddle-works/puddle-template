@@ -60,5 +60,9 @@ It holds one puddle: one extension with one bounded purpose.
   version they review.
 - `example.ts`, its test and `workflows/workflow-example.yaml` are
   placeholders. Replace them; do not extend them.
+- A web UI is Preact rendered on the server, written with `h()` in `.ts`,
+  because the swamp registry rejects `.tsx`. Capture's page works this way
+  ([ADR-006][ui]).
 
 [adr]: https://github.com/puddle-works/puddleworks-apps/blob/main/docs/adr/ADR-004-one-repo-per-puddle.md
+[ui]: https://github.com/puddle-works/puddleworks-capture/blob/main/docs/adr/ADR-006-preact-on-the-server.md
