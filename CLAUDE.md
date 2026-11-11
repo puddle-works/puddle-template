@@ -57,7 +57,9 @@ It holds one puddle: one extension with one bounded purpose.
 - `make publish VISIBILITY=private DRY_RUN=1` runs the publish dry run. Never
   push with `--yes`; `VISIBILITY` must equal `visibility:` in `manifest.yaml`.
 - Review reports live in `swamp-extension-review/` and are committed with the
-  version they review.
+  version they review. `.claude/settings.json` asks before each adversarial
+  review round starts, since a round costs a fresh agent: a build has two at
+  most, publish included, as Factory's `round` counts them.
 - `example.ts`, its test and `workflows/workflow-example.yaml` are
   placeholders. Replace them; do not extend them.
 - A web UI is Preact rendered on the server, written with `h()` in `.ts`,
