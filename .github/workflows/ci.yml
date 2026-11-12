@@ -14,6 +14,8 @@ jobs:
         with:
           deno-version: 2.9.7
       - run: deno test --allow-read extensions/models/
+      # The hook that asks before an adversarial review round (.claude/).
+      - run: deno test --allow-read --allow-run .claude/
   contracts:
     uses: puddle-works/puddle-tooling/.github/workflows/contracts-check.yml@v0.1.1
     with:
